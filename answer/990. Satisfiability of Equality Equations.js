@@ -46,6 +46,5 @@ var equationsPossible = function (equations) {
     }
   }
   return true
-};
-
+}
 [input, input2, input3, input4].forEach(item => console.log(equationsPossible(item)))
