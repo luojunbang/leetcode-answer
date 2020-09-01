@@ -23,7 +23,6 @@ var shiftGrid = function (grid, k) {
 };
 
 grid = [[1, 2, 3], [4, 5, 6], [7, 8, 9]], k = 1
-
 console.log(isArrayEqual(shiftGrid(grid, k), [[9, 1, 2], [3, 4, 5], [6, 7, 8]]));
 grid = [[1, 2, 3], [4, 5, 6], [7, 8, 9]], k = 9
 console.log(isArrayEqual(shiftGrid(grid, k), [[1, 2, 3], [4, 5, 6], [7, 8, 9]]));
