@@ -2,6 +2,7 @@
  * @param {number[]} cost
  * @return {number}
  */
+//toDo...
 var minCostClimbingStairs = function (cost) {
   let ans = 0, i = -1, step = []
   while (i + 2 < cost.length) {
