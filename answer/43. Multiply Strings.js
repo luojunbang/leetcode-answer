@@ -27,22 +27,36 @@ var addStrings = function (num1, num2) {
 };
 
 var multiply = function (num1, num2) {
-  let l1 = num1.length;
+  if (num1 == "0" || num2 == "0") return "0";
+  let l1 = num1.length - 1;
   const res = [];
-  while (--l1 >= 0) {
-    let a = num1[l1],
-      l2 = num2.length;
-    console.log("a:", a);
-    while (--l2 >= 0) {
-      const b = num2[l2];
-      console.log("b:", b);
+  while (l1 >= 0) {
+    const n1 = num1[l1];
+    let jinwei = 0;
+    const row = "0".repeat(num1.length - 1 - l1).split("");
+    let l2 = num2.length - 1;
+    while (l2 >= 0) {
+      const n2 = num2[l2];
+      const temp = +n1 * +n2 + jinwei;
+      row.unshift((temp % 10).toString());
+      jinwei = ~~(temp / 10);
+      l2--;
     }
+    if (jinwei != 0) row.unshift(jinwei.toString());
+    res.push(row.join(""));
+    l1--;
   }
-  return res.join("");
+  return res.reduce((rs, i) => addStrings(rs, i));
 };
 
 let num1 = "2",
-  num2 = "3";
+  num2 = "3"; 
 console.log(multiply(num1, num2), "6");
 (num1 = "123"), (num2 = "456");
 console.log(multiply(num1, num2), "56088");
+(num1 = "993"), (num2 = "456");
+console.log(multiply(num1, num2), "452808");
+(num1 = "999"), (num2 = "999");
+console.log(multiply(num1, num2), "998001");
+(num1 = "999999999999"), (num2 = "99");
+console.log(multiply(num1, num2), "998001");
